@@ -1,87 +1,53 @@
-# gtm-looper
+# AI-Native Startup OS
 
-**Design loops, not prompts.** Open-source Claude skills and a publishing pipeline
-for founders who'd rather build the machine than crank the handle.
+**A practical, executable playbook for rolling out Claude across a startup** — personal accounts for
+execution, a governed layer around them, and a Chief-of-Staff agent for every leader.
 
-![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)
+> The whole company gets faster *without* fragmenting its knowledge. Individual AI output becomes
+> governed, reusable, discoverable institutional memory — and every agent, dashboard, and decision points
+> at one **Org North Star**.
 
-The most leveraged AI users stopped prompting one instruction at a time and started
-writing **loops** — small systems that judge their own work against a metric and keep
-going until it's good. This repo gives you two of those loops as installable skills,
-plus the pipeline that publishes content built with them.
+📖 **Read the story:** [The AI-Native Startup Operating System](https://www.michaeltaus.com/ai-native-startup-os/)
+📄 **The playbook:** [`ai-native-startup-os.md`](./ai-native-startup-os.md) (one file — read it in the browser or download it)
 
-📄 Start with the essay: [**Write Loops, Not Prompts**](posts/2026-06-11-write-loops-not-prompts.md)
+## What's inside
 
----
+- **The operating model** — personal Claude accounts as the execution layer (a cost-containment move),
+  with a system of record (GitHub), a secrets manager (1Password), and an identity provider (Google
+  Workspace) built around them.
+- **Teams vs. Personal Max** — a scored decision framework + the cost math.
+- **Agent teams** — a Chief-of-Staff agent per leader, two read-only adjudicators (`analytics-lens`,
+  `finance-lens`), and an optional red-team challenge agent. All propose-only behind a human gate.
+- **The Org North Star** — one product metric (decomposed into Pirate Metrics / AARRR) wired into the
+  dashboard, the CoS agents, and the red-team's challenge test.
+- **A cascading rollout** — exec onboarding → a generated per-user onboarding skill → a dashboard
+  build-kickoff → user rollout, run in Claude Code.
+- **A Phase 0–4 maturity model + a Minimum Viable Rollout** so you don't need the whole architecture
+  on day one.
+- **The honest trade-offs** — data handling, account ownership, vendor coupling — and how to backfill
+  what a Team plan would give you.
 
-## The skills
+## Quick start
 
-### 🔁 `loop-design`
-The general engine. Turns any task into a loop with three parts — **objective** (what
-"done well" means), **metric** (how it scores its own pass without you reading every
-word), and **boundary** (what runs unattended vs. what stops for you). Then it shows you
-how to add the one feedback wire that turns a loop that *runs* into a loop that *learns*.
-
-### 🎯 `persona-value`
-The loop pointed at the only question that decides whether a startup lives: **who values
-what?** It maintains one living, company-wide matrix of which buyer personas care about
-which value drivers, scored by evidence strength (said → did → paid → stuck), and refines
-it from every deal, churn, and experiment. One source of truth for discovery, GTM, and
-product scope. Built on the [Persona-Value Matrix](https://www.michaeltaus.com/persona-value-matrix/).
-
----
-
-## Install
-
-**Claude Code** (available in every project):
-```bash
-git clone https://github.com/<your-username>/gtm-looper
-cp -r gtm-looper/skills/loop-design   ~/.claude/skills/
-cp -r gtm-looper/skills/persona-value ~/.claude/skills/
-```
-Restart Claude Code and run `/skills` to confirm. Invoke directly with `/loop-design`.
-
-**Claude.ai / Desktop / Cowork:** upload the packaged `.skill` files via
-**Settings → Capabilities → Skills** (cut a release first with `scripts/repackage_skills.py`).
-
-To make Claude *consult these every session*, also paste the one-line pointer from
-[`patterns/loop-design-install-guide.md`](patterns/loop-design-install-guide.md) into
-your `CLAUDE.md` / Project instructions.
-
----
-
-## The idea in 30 seconds
-
-A prompt is a single ask you crank by hand. A loop is the machine that cranks the asks
-for you and judges its own output, so your job moves from executing tasks to designing
-the system. The keystroke work disappears; the judgment work — picking the objective,
-the metric, the boundary — is the part that compounds. Full argument in
-[the essay](posts/2026-06-11-write-loops-not-prompts.md).
-
----
-
-## Build your own publishing pipeline
-
-This repo is also a working content engine: author posts as markdown, publish to Ghost,
-amplify to social through a human-approval gate.
-
-- `scripts/publish_to_ghost.py` — push a repo markdown post to Ghost (draft by default,
-  idempotent by slug). Set creds in `.env` (see `.env.example`), then:
-  ```bash
-  python scripts/publish_to_ghost.py posts/your-post.md --dry-run
-  ```
-- [`BUILD_PLAN.md`](BUILD_PLAN.md) — the full rollout, phase by phase.
-- [`CLAUDE.md`](CLAUDE.md) — conventions and guardrails for working in this repo.
-
----
-
-## Subscribe
-
-New essays on loops, GTM, and building with AI go out to the newsletter first:
-**👉 [subscribe here](<your-newsletter-url>)**.
-
----
+The fastest taste is the **Minimum Viable Rollout** (see §13.0 in the playbook): one repo, one north
+star, one metric dictionary, **one** Chief-of-Staff agent, one onboarding file. Time-to-first-value in
+days. Then graduate through the Phase 0–4 model as each step earns it.
 
 ## License
 
-MIT — take the skills, fork them, ship them. A link back is appreciated, not required.
+Dual-licensed so the prose and the code each get the right terms:
+
+- **Documentation / prose** — [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
+- **Code, configs & templates** — [MIT](./LICENSE)
+
+When you reuse or adapt it, keep the credit:
+
+> *"AI-Native Startup OS — Master Runbook & Playbook"* by **Michael Taus** with **Claude (Anthropic)** —
+> licensed CC BY 4.0 (docs) / MIT (code). Source: https://www.michaeltaus.com/ai-native-startup-os/
+
+## Author
+
+**Michael Taus** — [michaeltaus.com](https://www.michaeltaus.com/) ·
+[LinkedIn](https://www.linkedin.com/in/mtaus/). Co-authored with Claude (Anthropic).
+
+*If you build on it, I'd genuinely love to hear what you change.*
