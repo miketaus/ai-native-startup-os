@@ -1,0 +1,20 @@
+{
+  "name": "company-os",
+  "version": "0.1.0",
+  "description": "Blank-slate company operating harness. Interviews you on first run to write PROFILE.md, then runs your operating rhythm with a sixteen-lens agent panel. Contains no company data.",
+  "author": {
+    "name": "Michael Taus",
+    "url": "https://www.michaeltaus.com/"
+  },
+  "homepage": "https://www.michaeltaus.com/ai-native-startup-os/",
+  "repository": "https://github.com/miketaus/ai-native-startup-os",
+  "license": "CC-BY-4.0 AND MIT",
+  "keywords": [
+    "operating-system",
+    "startup",
+    "agents",
+    "planning",
+    "gtm",
+    "review"
+  ]
+}

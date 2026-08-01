@@ -1,0 +1,34 @@
+{
+  "name": "ai-native-startup-os",
+  "owner": {
+    "name": "Michael Taus",
+    "url": "https://www.michaeltaus.com/"
+  },
+  "metadata": {
+    "description": "The AI-Native Startup OS — a company operating harness for Claude Code.",
+    "version": "0.1.0"
+  },
+  "plugins": [
+    {
+      "name": "company-os",
+      "source": "./company-os",
+      "description": "Blank-slate company operating harness: interviews you on first run, then runs your operating rhythm (planning, triage, blockers, GTM, review) with a sixteen-lens agent panel. Ships with no company data.",
+      "version": "0.1.0",
+      "author": {
+        "name": "Michael Taus",
+        "url": "https://www.michaeltaus.com/"
+      },
+      "homepage": "https://www.michaeltaus.com/ai-native-startup-os/",
+      "license": "CC-BY-4.0 AND MIT",
+      "keywords": [
+        "operating-system",
+        "startup",
+        "agents",
+        "north-star",
+        "planning",
+        "gtm",
+        "review"
+      ]
+    }
+  ]
+}

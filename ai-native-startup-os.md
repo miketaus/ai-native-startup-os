@@ -16,6 +16,14 @@
 | Review cadence | Quarterly |
 | Authors | Michael Taus, with Claude (Anthropic) — see [Authors, license & attribution](#authors-license--attribution) |
 | License | CC BY 4.0 (docs) + MIT (code) — see end of doc |
+| Runnable harness | [`company-os/`](./company-os/) — installs as a Claude Code plugin and configures itself by interview |
+
+> **This playbook is the substrate; the harness is the runtime.** Part II below describes a cascade a
+> human facilitates. [`company-os/`](./company-os/) is an installable Claude Code plugin that *executes*
+> the same model — it interviews you, writes a `PROFILE.md`, and gives you `/agent-panel` (sixteen
+> review lenses) plus skills for planning, triage, blockers, GTM, and review. Where the two differ,
+> [`RECONCILIATION.md`](./RECONCILIATION.md) records which wins and why. Roughly 80% of the value is in
+> the substrate below; the harness is the 20% that makes it run.
 
 ### The cascade at a glance
 
@@ -262,6 +270,26 @@ draft (Google Docs / chat) → clean+templatize → submit to org-os → functio
 All agent-team output is **propose-only**: nothing is published, spent, committed to canon, or sent
 externally without the **human gate** (the accountable leader approves).
 
+### 6.0 Two invariants every agent config inherits
+
+**Figures: read, don't recall.** No agent config, prompt, or skill states a current number. Each names
+the *path* where the figure lives and its source grade (`A` instrumented and trusted · `B` mostly
+right · `C` manual or stale · `D` an estimate). **If a file contradicts the prompt, the file wins** —
+and the agent says so. Prompts that recite facts drift out of date and then argue confidently from
+stale numbers; prompts that read facts stay correct as the underlying files change.
+
+**Evidence grades: `SAID` < `DID` < `PAID` < `STUCK`.**
+
+| Grade | Means |
+|---|---|
+| `SAID` | Someone told us — interview, survey, "I'd definitely use that" |
+| `DID` | Someone behaved — used it, returned, completed the flow |
+| `PAID` | Someone gave up something costly — money, a contract, a migration, a public reference |
+| `STUCK` | They'd be hurt if it went away — retention through a price rise, a workaround built on us |
+
+State the grade with the claim. **Never plan on `SAID` alone** — and note that counting how many people
+said something does not upgrade it. Name the cheapest test that would move it to `DID` or `PAID`.
+
 ### 6.1 Operating cadences (hard defaults — tune per org)
 
 | Rhythm | Default | Owner |
@@ -467,7 +495,9 @@ PAIRS WITH: analytics-lens (metric truth), finance-lens (money truth), cos-* (wh
 | R7 | Learning-curve / tier mismatch | Deploy by tier (§7); honest personalized onboarding (Step 2/4); 30/90-day re-assessment. |
 | R8 | Cost asserted not proven | Run the three-way cost math (§3) incl. backfill + risk-adjusted; plan tier per role. |
 | R9 | Spend scatter | Virtual cards w/ per-seat limits + monthly attestations; Finance owns one AI-spend line; manager approval for Max. |
-| R10 | Agents acting unsupervised | All agents propose-only behind a human gate; lens adjudicators consulted before any metric/spend claim. |
+| R10 | Agents acting unsupervised | All agents propose-only behind a human gate; lens adjudicators consulted before any metric/spend claim. **One narrow exception, which is not an action:** `compliance-lens` may veto a *ship verdict* on sensitive-surface changes — it changes what the panel recommends, never what happens. Recorded with its reason; the operator may override explicitly and in the open. See R11. |
+| R11 | Prompts arguing from stale numbers | **Figures: read, don't recall.** No prompt, skill, or agent config states a current figure; each names the *path* where the figure lives plus a source grade (`A`–`D`). If a file contradicts the prompt, the file wins. Re-verified by the `state-sweep` cadence (§ 6.1). |
+| R12 | Planning on opinion dressed as evidence | Grade every decision-driving claim `SAID` < `DID` < `PAID` < `STUCK`, and state the grade with the claim. Reject planning that rests on `SAID` alone; name the cheapest test that would upgrade it. |
 
 ### 9.1 Data-classification gate
 
