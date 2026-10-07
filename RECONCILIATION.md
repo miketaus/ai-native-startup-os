@@ -161,9 +161,9 @@ analytics vs growth.
 ### Cost is now a first-class concern
 
 Sixteen lenses is sixteen agents, several at `opus`/`high`. The harness therefore documents three
-panel sizes — single lens, focused (4–6, usually via `gtm` or `review-panel`), and full — and requires
-any reduced run to **name the seats it dropped and the blind spot each drop creates.** A silently
-reduced panel is one the operator over-trusts.
+panel sizes — single lens, focused (a named subset, usually via `gtm` or `review-panel`), and full —
+and requires any reduced run to **name the seats it dropped and the blind spot each drop creates.**
+A silently reduced panel is one the operator over-trusts.
 
 **Why every judgment lens declares its own bias.** A `finance-lens` that doesn't say *"I will be
 conservative; discount me when the downside is capped"* becomes a caricature that always says no,
@@ -203,7 +203,9 @@ verification checklist.
 5. **`compliance-lens` can veto, and applies a criteria test** rather than trusting a self-declaration.
 6. **Evidence grades everywhere.** Reject planning that rests on `SAID` alone.
 7. **Model tiers live in agent frontmatter.** `PROFILE.md` § 10 *records* them. Never restate a tier
-   inside a skill — duplicated tiers drift, and then the documentation becomes the bug.
+   inside a skill — duplicated tiers drift, and then the documentation becomes the bug. **The same
+   holds for seat counts:** `reference/lens-roster.md` records how many lenses there are and which
+   ones each skill convenes. A skill names its seats; it never states a count.
 8. **Skills state honestly what isn't automated.** A gate described as automatic when a human has to
    run it is worse than no gate, because the operator stops checking.
 9. **Prune by deletion, not `N/A`.** A stubbed section reads as configured.

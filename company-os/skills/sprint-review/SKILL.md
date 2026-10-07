@@ -52,7 +52,7 @@ value thing in a review. Ask for it explicitly; it doesn't volunteer itself.
 
 **7. Convene a focused panel** — `analytics-lens` (did it really move, is the attribution honest),
 `product-lens` (what does this mean for what we build next), `finance-lens` (what did the cycle cost
-against what it returned), `cs-lens` (what did customers experience). Four seats.
+against what it returned), `cs-lens` (what did customers experience). These seats only.
 
 **8. What changes next cycle?** A review that changes nothing was a status meeting.
 

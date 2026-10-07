@@ -153,7 +153,7 @@ passing, or someone exercising the live path?"* Record the honest answer in `TES
 ## Phase 5 — lenses and tiers
 
 Show the roster from `reference/lens-roster.md` with defaults already applied, and ask what to
-**change** — don't ask sixteen separate questions.
+**change** — don't ask a separate question per lens.
 
 - **Always on, not optional:** `compliance-lens` (it can veto), `red-team` (it's the only reason the
   panel isn't an echo chamber).
@@ -166,11 +166,11 @@ Show the roster from `reference/lens-roster.md` with defaults already applied, a
 - **Makers** (`copywriter`, `designer`) are always available and are **never panel seats.** Mention
   they exist and that skills invoke them to draft, then lenses judge the draft.
 
-Then flag cost honestly — this matters more now that the roster is sixteen:
+Then flag cost honestly — this matters more the larger the roster is:
 
-> A full `/agent-panel` is sixteen separate agents, several on the largest model. That's a real spend,
-> and it's meant for one-way doors — pivots, pricing, launches. Most questions want one lens, or a
-> focused skill like `gtm` or `review-panel` that convenes four to six.
+> A full `/agent-panel` is one separate agent per active lens, several on the largest model. That's a
+> real spend, and it's meant for one-way doors — pivots, pricing, launches. Most questions want one
+> lens, or a focused skill like `gtm` or `review-panel` that convenes a named subset.
 >
 > You can turn lenses off now, or downgrade tiers. My recommendation: leave them alone until you've
 > run it a few times and know which seats you actually read. Turning off a seat you've never used is

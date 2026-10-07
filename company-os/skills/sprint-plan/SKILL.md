@@ -37,8 +37,8 @@ reason to be in the cycle — keeping-the-lights-on work is legitimate, but say 
 
 **5. Convene a focused panel** — `product-lens` (is this the right work), `analytics-lens` (will we be
 able to tell if it worked), `finance-lens` (can we afford this cycle's shape), `ops-lens` (what
-ongoing load does it create), `red-team` (what's this plan assuming). Five seats, not sixteen —
-`/agent-panel` is for the strategy behind the plan, not the plan itself.
+ongoing load does it create), `red-team` (what's this plan assuming). These seats only, not the full
+panel — `/agent-panel` is for the strategy behind the plan, not the plan itself.
 
 **6. State the success condition before the cycle starts.** What would have to be true at the end for
 this to have worked — in metric terms, predicted **now**. A success condition written afterwards is a

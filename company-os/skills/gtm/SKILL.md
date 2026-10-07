@@ -6,7 +6,8 @@ description: Work a go-to-market question — positioning, launch, campaign, pri
 # gtm — work a go-to-market question
 
 Convenes the commercial seats. Use this instead of `/agent-panel` for anything about how the product
-reaches and persuades customers — it's six seats rather than sixteen and better aimed.
+reaches and persuades customers — a focused subset of the roster rather than the full panel, and better
+aimed. The seats are named under **The seats** below and recorded in `reference/lens-roster.md`.
 
 ## Before anything
 
@@ -14,8 +15,9 @@ Read `PROFILE.md` § 1 (identity), § 2 (objective function), § 3 (customer, pe
 quote grounding), § 4 (pipeline, product metrics, tripwires), § 5 (lanes). Then
 `reference/evidence-grades.md`.
 
-**Sharpen the question first.** "Help with marketing" produces six vague answers at real cost. Get to
-something decidable: *"Should we lead the launch with the integration or the time saved?"*
+**Sharpen the question first.** "Help with marketing" produces one vague answer per seat at real
+cost. Get to something decidable: *"Should we lead the launch with the integration or the time
+saved?"*
 
 > **Figures: read, don't recall.** Conversion, CAC, pipeline, traffic — from § 4 paths opened in this
 > run. Check § 4 tripwires before citing anything.

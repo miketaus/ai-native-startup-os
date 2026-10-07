@@ -257,7 +257,7 @@ when the downside is capped"* becomes a caricature that always says no, and you 
 
 **Cost — this matters.** A full `/agent-panel` is **sixteen separate agents**, several at `opus`/`high`.
 Reserve it for hard-to-reverse decisions. For everything else call one lens, or use a focused skill
-(`gtm`, `review-panel`) that convenes four to six. Dropping seats is expected, not a compromise — but
+(`gtm`, `review-panel`) that convenes a named subset. Dropping seats is expected, not a compromise — but
 any reduced run must say which seats it skipped and what blind spot that creates.
 
 To change a tier, edit the **agent frontmatter** and then update this table to match. Never the reverse.

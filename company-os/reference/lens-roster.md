@@ -100,12 +100,19 @@ always. Other skills convene a subset — each names its own:
 | Skill | Convenes |
 |---|---|
 | `agent-panel` | all active + `compliance-lens` + `red-team` |
-| `review-panel` | `architect`, `security-lens`, `ops-lens`, `ux-lens`, `compliance-lens`, `red-team` |
-| `gtm` | `brand-lens`, `growth-lens`, `sales-lens`, `comms-lens`, `customer-persona`, `finance-lens`, `red-team` |
+| `review-panel` | `architect`, `security-lens`, `ops-lens`, `ux-lens` (only if user-facing), `compliance-lens` (**mandatory**), `red-team` |
+| `gtm` | `brand-lens`, `growth-lens`, `sales-lens`, `comms-lens`, `customer-persona` (only if § 3 is grounded), `finance-lens`, `red-team` — plus `compliance-lens` whenever the work makes a public claim |
 | `sprint-plan` | `product-lens`, `analytics-lens`, `finance-lens`, `ops-lens`, `red-team` |
 | `sprint-review` | `analytics-lens`, `product-lens`, `finance-lens`, `cs-lens` |
 | `intake` | `product-lens`, `analytics-lens` (+ `customer-persona` if grounded) |
-| `triage` / `blockers` | none — these rank and report; they don't convene |
+| `triage` / `blockers` / `qa` / `state-sweep` | none — these rank, verify, and report; they don't convene |
+| `pr-queue` | none — but it flags any PR touching § 9 as needing `compliance-lens` before merge |
+| `setup` | none — it configures the roster rather than convening it |
+
+**This table is where seat counts live.** A skill names the seats it convenes; the count of them
+belongs here and nowhere else. Never write "six seats" or "sixteen lenses" into a skill file —
+duplicated counts drift, and then the documentation becomes the bug. If a skill's convene list and
+this table disagree, **the skill file wins** on *which* lenses and this row is stale.
 
 ## Cost — read this before running a full panel
 
@@ -117,7 +124,7 @@ Three sensible sizes:
 | Size | Seats | Use for |
 |---|---|---|
 | **Single lens** | 1 | Most questions. Just call the seat you need. |
-| **Focused panel** | 4–6 | A real decision inside one domain. Use `gtm`, `review-panel`, or name the seats. |
+| **Focused panel** | 4–7 | A real decision inside one domain. Use `gtm`, `review-panel`, or name the seats. |
 | **Full panel** | all active | Pivots, pricing, launches, one-way doors, "we're sure about this" moments. |
 
 Dropping seats is expected, not a compromise. Any skill that runs a reduced panel **must say which
