@@ -272,3 +272,11 @@ equivalent call there and an agent should not make it by inference.
 9. **Prune by deletion, not `N/A`.** A stubbed section reads as configured.
 10. **Routing hygiene.** Overlapping skills disambiguate in their own descriptions — see `intake`
     vs `triage`, and `agent-panel` vs `review-panel`.
+11. **Build the parts that say no first.** Operating experience is blunt about this: the parts of a
+    system that refuse things get used and earn trust, because when they're wrong you find out
+    immediately. The parts that only produce documents have no such feedback and quietly stop being
+    opened. A new skill whose entire output is a well-structured document should justify itself
+    against that.
+12. **Fail closed, everywhere.** An errored check is a failed check — in the merge gate, in the
+    branch-deletion lookup, in a sweep that found nothing. "Scanned 0 files, all clean" must never
+    read as success.
