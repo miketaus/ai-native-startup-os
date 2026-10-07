@@ -43,9 +43,9 @@ Spawn in parallel, independently. Name skipped seats and the blind spot each cre
 CHANGE: <what it does, one sentence> — <files/PR>
 
 VERDICT: ship | ship-with-changes | fix-first | rework
-          ← cannot be `ship` if compliance-lens vetoed
+          ← cannot be `ship` if compliance-lens VETOED (see PROFILE § 9 posture)
 CONFIDENCE: high | medium | low
-COMPLIANCE: clear | clear-with-conditions | VETO — <reason>
+COMPLIANCE: clear | clear-with-conditions | RECOMMEND-AGAINST | VETO — <reason + posture>
 SENSITIVE SURFACE: <engaged | not — per compliance-lens's own criteria test>
 
 MUST FIX BEFORE MERGE

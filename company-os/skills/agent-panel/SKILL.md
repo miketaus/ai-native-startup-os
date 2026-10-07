@@ -64,7 +64,7 @@ synthesis that averages them away has destroyed the thing you paid for.
 DECISION: <the one sentence>
 
 VERDICT: ship | ship-with-changes | hold | fix-first | no
-          ← cannot be `ship` if compliance-lens vetoed
+          ← cannot be `ship` if compliance-lens VETOED (see PROFILE § 9 posture)
 CONFIDENCE: high | medium | low
 COMPLIANCE: clear | clear-with-conditions | VETO — <reason if vetoed>
 
@@ -101,7 +101,10 @@ PANEL
 
 - **Figures: read, don't recall.** Every number in the synthesis traces to a lens that opened a
   `PROFILE.md` § 4 path. If a file contradicts what you remember, the file wins — say so.
-- **`compliance-lens` can veto.** If it did, the verdict cannot be `ship`. Record the reason verbatim.
+- **`compliance-lens` may be able to block — check `PROFILE.md` § 9.** Under `veto` posture, any
+  finding it doesn't clear means the verdict cannot be `ship`. Under `advisory` (the default), only a
+  § 9 hard line blocks; anything else comes back as `RECOMMEND-AGAINST`, which you carry into the
+  synthesis at full strength but which does not veto. Record its reason verbatim either way.
   The operator may override, explicitly and in the open — never silently.
 - **Preserve dissent.** A lens that disagreed with the outcome keeps its own row in the panel table.
   Never smooth a minority view out of the summary.

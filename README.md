@@ -128,9 +128,10 @@ The parts that look like style choices and aren't:
   caricature you learn to skip.
 - **`red-team` is not balanced, on purpose.** Soften it and the panel becomes several flavours of
   agreement.
-- **`compliance-lens` can veto a `ship` verdict** and is mandatory — not advisory — for sensitive
-  changes. It applies its own criteria test rather than trusting a "nothing sensitive here" answer,
-  because under-declaring is the common failure.
+- **`compliance-lens` always runs** on anything touching the sensitive surface, and always applies
+  its own criteria test rather than trusting a "nothing sensitive here" answer. Whether it can
+  **block** a `ship` verdict is a per-company choice (`compliance_posture`: `advisory` by default,
+  `veto` where the business warrants it).
 - **Skills state what isn't automated.** Nothing here runs on a timer. A gate you believe is automatic
   and isn't is worse than no gate.
 

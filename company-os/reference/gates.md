@@ -43,10 +43,10 @@ like it." Ask again.
 
 Defined per-company in `PROFILE.md` § 9. When a change touches it:
 
-- `compliance-lens` **always runs** — whether or not anyone asked for it, under either posture.
-- If it does not clear, **the verdict cannot be `ship`.** It can be `hold`, `fix-first`, or
-  `escalate`. Never `ship`.
-- A veto is recorded **with its reason**, in the open.
+- `compliance-lens` **always runs** — whether or not anyone asked for it, under either posture, and
+  always applies its own criteria test.
+- **What happens when it doesn't clear depends on the posture** set in § 9 — see below.
+- Either way the finding is recorded **with its reason**, in the open.
 - The operator may override, explicitly. Silent override is the failure mode; open override is a
   legitimate operator decision and should be recorded as one.
 
@@ -57,18 +57,29 @@ the § 9 criteria itself. **Under-declaring is the common failure** — people g
 change touched personal data until someone points at the field. Asking the author is asking the person
 least likely to have noticed.
 
-## Posture: veto or advisory
+## Posture: advisory or veto
 
-The above describes `compliance_posture: veto`, the default. A profile may instead set `advisory` in
-`PROFILE.md` § 9, where only an explicit, written list of hard lines blocks and everything else is a
-recorded strong recommendation.
+`compliance_posture` in `PROFILE.md` § 9 decides what a non-clear finding *does*:
 
-This is a real choice with a real cost either way — a blocking lens tends to enforce self-imposed
-policy as though it were law, and an advisory one will eventually let something real through. Both
-failure modes are written out in `operating-patterns.md` § 2. **The posture is the operator's call,
-never an agent's**, and `advisory` is only valid alongside a written hard-line list.
+| Posture | A finding that doesn't clear | |
+|---|---|---|
+| **`advisory`** | Becomes `RECOMMEND-AGAINST` — recorded, visible, argued at full strength, **not blocking**. Only the § 9 hard lines block. | *default* |
+| **`veto`** | **The verdict cannot be `ship`.** It can be `hold`, `fix-first`, or `escalate`. | |
 
-Under both postures the lens runs its own criteria test and never accepts a self-declaration.
+**Choose from the business you're in.** `veto` where a single exposure is existential — health or
+financial data, children, a named regulatory regime, enterprise security commitments. `advisory` for
+most early-stage software, where the realistic risk is that an over-eager lens teaches you to click
+past it. Both failure modes are in `operating-patterns.md` § 2.
+
+**The posture is the operator's call, never an agent's.**
+
+Two things do not change with posture: the lens **always runs**, and it **always applies its own
+criteria test** rather than accepting a self-declaration. Whether it can block is configurable;
+whether it looks is not.
+
+**It fails closed.** `advisory` with no written hard-line list is an off switch, not a posture — the
+lens detects that case, behaves as `veto`, and says so. Skipping the question gets you more
+strictness, never less.
 
 ## Honesty about automation
 

@@ -202,8 +202,9 @@ recorded with its reason; the operator may override it explicitly and in the ope
 
 ## § 9 Sensitive surface
 
-Changes touching any of these make `compliance-lens` **mandatory, not advisory** — and if it does not
-clear, the verdict cannot be `ship`.
+Changes touching any of these make `compliance-lens` **mandatory** — it runs and applies its own
+criteria test whether or not anyone asked. Whether a non-clear finding **blocks** depends on the
+posture below.
 
 {{SENSITIVE_SURFACE}}
 

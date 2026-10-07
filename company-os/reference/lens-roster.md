@@ -23,7 +23,7 @@ panel.
 | 11 | `comms-lens` | Who hears what, when, and in what order? | judgment | yes |
 | 12 | `architect` | Does this fit the system we have, and what does it cost structurally? | judgment | yes |
 | 13 | `security-lens` | Could an attacker make this do something we didn't intend? | judgment | yes |
-| 14 | `compliance-lens` | Does this create legal, regulatory, or data exposure? | **blocking** | yes |
+| 14 | `compliance-lens` | Does this create legal, regulatory, or data exposure? | **can block** | yes |
 | 15 | `customer-persona` | *Reacts as the customer.* Not analysis — reaction. | **reaction** | **no** |
 | 16 | `red-team` | What's the strongest case that this is wrong? | **adversarial** | **no** |
 
@@ -64,8 +64,10 @@ conservative; discount me when the downside is capped"* becomes the agent that a
 learn to skip it. Each is entitled to be wrong in its stated direction — that's why the panel has more
 than one seat.
 
-**The blocking lens (14)** is the only agent that can change a verdict on its own. Mandatory — not
-advisory — for anything touching `PROFILE.md` § 9. See `gates.md`.
+**The blocking lens (14)** is the only agent whose finding can change a verdict on its own. It
+**always runs** for anything touching the sensitive surface and always applies its own criteria test.
+Whether a non-clear finding actually blocks depends on `compliance_posture` in `PROFILE.md` § 9 —
+`advisory` by default, `veto` where the business warrants it. See `gates.md`.
 
 **Bias-free by design (15–16).** `customer-persona` is a **reaction**, not an analysis — a customer
 doesn't caveat themselves, and making it balanced would destroy the thing it's for. `red-team` is
