@@ -150,6 +150,14 @@ no lever, `triage` flags it every run until it's resolved or closed.
 | Branch convention | {{BRANCH_CONVENTION}} |
 | PR convention | {{PR_CONVENTION}} |
 | Who can merge | {{MERGE_AUTHORITY}} |
+| Merge posture | {{MERGE_POSTURE}} |
+
+**Merge posture** is `operator` (default — only you merge) or `agent-on-label` (you apply an approval
+label; an agent merges through a gate that refuses a stale branch, CI not green on that exact head, an
+approval older than the head commit, or a failing health probe). `reference/operating-patterns.md` § 1
+has the full gate and the one norm that carries it: **an agent applies the approval label only on your
+explicit say-so.** Agents can apply labels, so a gate that trusts labels alone lets the system approve
+itself.
 
 **Verification standard.** Before anything is called done, exercise the **real** end-to-end path
 against the real target — hit the live endpoint, run the real user flow, check the deployed bundle.
@@ -201,10 +209,27 @@ clear, the verdict cannot be `ship`.
 
 **`compliance-lens` applies a criteria test rather than trusting a "no sensitive surface here"
 answer**, because under-declaring is the common failure — people usually don't know their change
-touched personal data until someone points at the field.
+touched personal data until someone points at the field. It does this under either posture.
+
+**Compliance posture** is `advisory` (default — only the hard lines above block; everything else is a
+recorded, visible strong recommendation) or `veto` (anything the lens doesn't clear blocks a `ship`
+verdict). **Choose from the business you're actually in:** `veto` for regulated industries, health or
+financial data, anything touching children, or enterprise security commitments — `advisory` for most
+early-stage software, where the realistic risk is an over-eager lens teaching you to ignore it.
+
+**The hard-line list is required either way.** An advisory posture with no hard lines is an off
+switch, not a posture, so the lens detects a missing list, falls back to `veto`, and says so. Both
+failure modes are in `reference/operating-patterns.md` § 2.
+
+**Masked-output tools** are tools whose output structurally cannot carry a sensitive value — counts,
+categories, pass/fail, never the record. List them above, because the distinction is invisible at the
+call site and an agent will otherwise reach for the ordinary tool.
 
 | | |
 |---|---|
+| Compliance posture | {{COMPLIANCE_POSTURE}} |
+| Hard lines (**required** — what actually blocks) | {{COMPLIANCE_HARD_LINES}} |
+| Masked-output tools | {{MASKED_OUTPUT_TOOLS}} |
 | Regulatory regimes in scope | {{REGIMES}} |
 | Data classes we handle | {{DATA_CLASSES}} |
 | Where secrets live | {{SECRETS_MANAGER}} |

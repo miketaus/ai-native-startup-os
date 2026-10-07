@@ -194,13 +194,74 @@ verification checklist.
 
 ---
 
+## Conflict 4 — operating experience vs. the invariants above
+
+Running the harness on a real company surfaced two places where the original design was wrong in
+practice, not in theory. Both are recorded in
+[`company-os/reference/operating-patterns.md`](./company-os/reference/operating-patterns.md), and both
+collide directly with invariants this document declares load-bearing. Resolving them by **adding an
+option and keeping the default** — rather than flipping the default — is deliberate.
+
+### 4a. "Propose-only" made the operator the bottleneck
+
+**The collision.** Invariant 1 says no agent acts, and merging is on the gate list. Held strictly,
+every finished change waits on one person to open it and press a button. The queue stalls behind their
+attention and the system's speed advantage disappears.
+
+**Resolution.** Separate *judgment* from *mechanics*. The operator still decides; an agent may perform
+the merge under a gate that can refuse. `PROFILE.md` § 6 adds `merge_authority`, **defaulting to
+`operator`** — the strict reading stays the default, and `agent-on-label` is an informed opt-in with
+its failure mode written down.
+
+**The part that carries it:** agents can apply labels. The norm *an agent applies the approval label
+only on the operator's explicit say-so* is what separates this from a system approving its own work
+through a mechanism shaped like oversight. If that norm isn't written where agents read it, this
+option is worse than the bottleneck it fixes.
+
+### 4b. A blocking compliance lens enforces policy as law
+
+**The collision.** Invariant 5 says `compliance-lens` can veto, and that's still right about real
+exposure. But a blocking lens does not distinguish *illegal* from *our own stated policy*, and teams
+write aspirational policy. Work stops on things nobody is legally or contractually required to do,
+the operator starts overriding reflexively, and the signal dies exactly where it was supposed to be
+strongest.
+
+**Resolution.** `PROFILE.md` § 9 adds `compliance_posture`, **defaulting to `advisory`**. Only an
+explicit written hard-line list blocks; everything else becomes `RECOMMEND-AGAINST` — recorded,
+visible, argued at full strength, but not blocking. The analysis never gets softer; only its effect
+changes.
+
+**Why this default moved and the merge one didn't.** Invariant 5 originally made the veto mandatory
+because under-declaring exposure is the common failure. That reasoning is still right about *detection*
+— which is why the criteria test is untouched and still runs under both postures. It was wrong about
+*enforcement*. A lens that blocks on self-imposed policy trains the operator to click past it, and an
+override nobody reads is worse than a recommendation they argue with. The posture is now chosen from
+the business: `veto` where a single exposure is existential (health, financial, children, named
+regimes, enterprise security commitments), `advisory` for most early-stage software.
+
+**The guard:** `advisory` with no hard-line list is an off switch, not a posture. The lens detects
+that case, falls back to `veto`, and says so out loud — so the failure mode of skipping the question
+is *more* strictness, never less.
+
+### Why defaults didn't move
+
+Both were learned at one company, with one operator, at one stage — `DID`-grade evidence about this
+harness, not `PAID`. So both shipped as options with their failure modes stated, and **flipping a
+default is the operator's decision, never an agent's**, including the agent that learned the lesson.
+
+The operator subsequently made that call on compliance: **`advisory` by default, `veto` as the
+business warrants it.** `merge_authority` still defaults to `operator`, because nobody has made the
+equivalent call there and an agent should not make it by inference.
+
 ## Invariants — do not optimize these away
 
 1. **Propose-only.** No agent acts. `PROFILE.md` § 8 is binding.
 2. **Read, don't recall.** Figures come from files. The file wins.
 3. **Every judgment lens declares its bias.** The three that don't are marked deliberate.
 4. **`red-team` is not balanced.** That is the feature.
-5. **`compliance-lens` can veto, and applies a criteria test** rather than trusting a self-declaration.
+5. **`compliance-lens` applies its own criteria test** rather than trusting a self-declaration — under
+   every posture, without exception. Whether it can *block* on what it finds is the operator's choice
+   (`compliance_posture`, default `advisory`); whether it *looks* is not.
 6. **Evidence grades everywhere.** Reject planning that rests on `SAID` alone.
 7. **Model tiers live in agent frontmatter.** `PROFILE.md` § 10 *records* them. Never restate a tier
    inside a skill — duplicated tiers drift, and then the documentation becomes the bug. **The same
@@ -211,3 +272,11 @@ verification checklist.
 9. **Prune by deletion, not `N/A`.** A stubbed section reads as configured.
 10. **Routing hygiene.** Overlapping skills disambiguate in their own descriptions — see `intake`
     vs `triage`, and `agent-panel` vs `review-panel`.
+11. **Build the parts that say no first.** Operating experience is blunt about this: the parts of a
+    system that refuse things get used and earn trust, because when they're wrong you find out
+    immediately. The parts that only produce documents have no such feedback and quietly stop being
+    opened. A new skill whose entire output is a well-structured document should justify itself
+    against that.
+12. **Fail closed, everywhere.** An errored check is a failed check — in the merge gate, in the
+    branch-deletion lookup, in a sweep that found nothing. "Scanned 0 files, all clean" must never
+    read as success.
