@@ -43,7 +43,7 @@ like it." Ask again.
 
 Defined per-company in `PROFILE.md` § 9. When a change touches it:
 
-- `compliance-lens` is **mandatory, not advisory** — it runs whether or not anyone asked for it.
+- `compliance-lens` **always runs** — whether or not anyone asked for it, under either posture.
 - If it does not clear, **the verdict cannot be `ship`.** It can be `hold`, `fix-first`, or
   `escalate`. Never `ship`.
 - A veto is recorded **with its reason**, in the open.
@@ -57,6 +57,19 @@ the § 9 criteria itself. **Under-declaring is the common failure** — people g
 change touched personal data until someone points at the field. Asking the author is asking the person
 least likely to have noticed.
 
+## Posture: veto or advisory
+
+The above describes `compliance_posture: veto`, the default. A profile may instead set `advisory` in
+`PROFILE.md` § 9, where only an explicit, written list of hard lines blocks and everything else is a
+recorded strong recommendation.
+
+This is a real choice with a real cost either way — a blocking lens tends to enforce self-imposed
+policy as though it were law, and an advisory one will eventually let something real through. Both
+failure modes are written out in `operating-patterns.md` § 2. **The posture is the operator's call,
+never an agent's**, and `advisory` is only valid alongside a written hard-line list.
+
+Under both postures the lens runs its own criteria test and never accepts a self-declaration.
+
 ## Honesty about automation
 
 **Nothing in this harness runs on a timer by itself.** Every cadence in `PROFILE.md` § 7 needs a human
@@ -67,3 +80,14 @@ no gate at all, because they stop checking for themselves.
 
 The same applies to any check a skill claims to perform. If a skill says "verified," it must have
 actually run the verification. If it couldn't, it says so and names who has to.
+
+**And say what nobody reads.** An alert that fires constantly is a disabled alert whatever its config
+says — report how often it fires when nothing is wrong, distinguish "this fired" from "someone saw
+it," and treat a long-unacknowledged failure as two findings, the second usually worse. See
+`operating-patterns.md` § 7.
+
+## Patterns learned in practice
+
+`operating-patterns.md` carries seven of these, each from a specific repeatable failure: the cheap-but-
+human approval gate, compliance posture, stacked-branch deletion, late-arriving hand-offs, guards that
+have never been seen failing, masked-output tools, and alert volume.

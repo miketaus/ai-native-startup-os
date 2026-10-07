@@ -53,4 +53,5 @@ skill, or agent file — including this one.
 | The sixteen lenses and two makers — what each is for, what each is biased toward | `reference/lens-roster.md` |
 | Evidence grading | `reference/evidence-grades.md` |
 | Gates and the sensitive surface | `reference/gates.md` |
+| Patterns learned running this for real | `reference/operating-patterns.md` |
 | The operating model this implements | [`ai-native-startup-os.md`](https://github.com/miketaus/ai-native-startup-os) |

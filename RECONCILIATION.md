@@ -194,6 +194,54 @@ verification checklist.
 
 ---
 
+## Conflict 4 — operating experience vs. the invariants above
+
+Running the harness on a real company surfaced two places where the original design was wrong in
+practice, not in theory. Both are recorded in
+[`company-os/reference/operating-patterns.md`](./company-os/reference/operating-patterns.md), and both
+collide directly with invariants this document declares load-bearing. Resolving them by **adding an
+option and keeping the default** — rather than flipping the default — is deliberate.
+
+### 4a. "Propose-only" made the operator the bottleneck
+
+**The collision.** Invariant 1 says no agent acts, and merging is on the gate list. Held strictly,
+every finished change waits on one person to open it and press a button. The queue stalls behind their
+attention and the system's speed advantage disappears.
+
+**Resolution.** Separate *judgment* from *mechanics*. The operator still decides; an agent may perform
+the merge under a gate that can refuse. `PROFILE.md` § 6 adds `merge_authority`, **defaulting to
+`operator`** — the strict reading stays the default, and `agent-on-label` is an informed opt-in with
+its failure mode written down.
+
+**The part that carries it:** agents can apply labels. The norm *an agent applies the approval label
+only on the operator's explicit say-so* is what separates this from a system approving its own work
+through a mechanism shaped like oversight. If that norm isn't written where agents read it, this
+option is worse than the bottleneck it fixes.
+
+### 4b. A blocking compliance lens enforces policy as law
+
+**The collision.** Invariant 5 says `compliance-lens` can veto, and that's still right about real
+exposure. But a blocking lens does not distinguish *illegal* from *our own stated policy*, and teams
+write aspirational policy. Work stops on things nobody is legally or contractually required to do,
+the operator starts overriding reflexively, and the signal dies exactly where it was supposed to be
+strongest.
+
+**Resolution.** `PROFILE.md` § 9 adds `compliance_posture`, **defaulting to `veto`**. Under
+`advisory`, only an explicit written hard-line list blocks; everything else becomes
+`RECOMMEND-AGAINST` — recorded, visible, argued at full strength, but not blocking. The analysis never
+gets softer; only its effect changes.
+
+**The guard:** `advisory` with no hard-line list is an off switch, not a posture. The lens is built to
+detect that case, treat it as `veto`, and say so out loud.
+
+### Why defaults didn't move
+
+Both of these were learned at one company, with one operator, at one stage. That is `DID`-grade
+evidence about this harness, not `PAID`. Changing a default silently changes behaviour for everyone
+who installs it; adding an option with its failure mode stated lets each operator make their own call
+with the trade-off in front of them. **Flipping a default is the operator's decision, never an
+agent's** — including the agent that learned the lesson.
+
 ## Invariants — do not optimize these away
 
 1. **Propose-only.** No agent acts. `PROFILE.md` § 8 is binding.

@@ -150,6 +150,14 @@ no lever, `triage` flags it every run until it's resolved or closed.
 | Branch convention | {{BRANCH_CONVENTION}} |
 | PR convention | {{PR_CONVENTION}} |
 | Who can merge | {{MERGE_AUTHORITY}} |
+| Merge posture | {{MERGE_POSTURE}} |
+
+**Merge posture** is `operator` (default — only you merge) or `agent-on-label` (you apply an approval
+label; an agent merges through a gate that refuses a stale branch, CI not green on that exact head, an
+approval older than the head commit, or a failing health probe). `reference/operating-patterns.md` § 1
+has the full gate and the one norm that carries it: **an agent applies the approval label only on your
+explicit say-so.** Agents can apply labels, so a gate that trusts labels alone lets the system approve
+itself.
 
 **Verification standard.** Before anything is called done, exercise the **real** end-to-end path
 against the real target — hit the live endpoint, run the real user flow, check the deployed bundle.
@@ -201,10 +209,23 @@ clear, the verdict cannot be `ship`.
 
 **`compliance-lens` applies a criteria test rather than trusting a "no sensitive surface here"
 answer**, because under-declaring is the common failure — people usually don't know their change
-touched personal data until someone points at the field.
+touched personal data until someone points at the field. It does this under either posture.
+
+**Compliance posture** is `veto` (default — anything the lens doesn't clear blocks a `ship` verdict)
+or `advisory` (only the hard lines above block; everything else is a recorded, visible strong
+recommendation). Pick `advisory` only if you have written the hard-line list — an advisory posture
+with no hard lines is an off switch, not a posture. Each setting has a real failure mode, both stated
+in `reference/operating-patterns.md` § 2.
+
+**Masked-output tools** are tools whose output structurally cannot carry a sensitive value — counts,
+categories, pass/fail, never the record. List them above, because the distinction is invisible at the
+call site and an agent will otherwise reach for the ordinary tool.
 
 | | |
 |---|---|
+| Compliance posture | {{COMPLIANCE_POSTURE}} |
+| Hard lines (required if posture is `advisory`) | {{COMPLIANCE_HARD_LINES}} |
+| Masked-output tools | {{MASKED_OUTPUT_TOOLS}} |
 | Regulatory regimes in scope | {{REGIMES}} |
 | Data classes we handle | {{DATA_CLASSES}} |
 | Where secrets live | {{SECRETS_MANAGER}} |

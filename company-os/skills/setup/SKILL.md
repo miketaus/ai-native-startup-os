@@ -124,6 +124,17 @@ convention · who can merge.
 Ask one thing you can't detect: *"When something is called done, what's the real check — tests
 passing, or someone exercising the live path?"* Record the honest answer in `TEST_STANDARD`.
 
+**Then ask the merge posture** (`MERGE_POSTURE`). Offer both, recommend `operator` to start:
+
+> *"Who presses merge? Either **you do** — safest, but you become the bottleneck and the queue
+> stalls behind your attention. Or **you approve with a label and an agent merges** through a gate
+> that refuses a stale branch, CI that isn't green on that exact commit, an approval older than the
+> code it approves, or a failing health probe."*
+
+If they pick `agent-on-label`, say this plainly and record that you did: **agents can apply labels.**
+The norm "an agent applies the approval label only on your explicit say-so" is what makes this a gate
+rather than a system approving its own work. `reference/operating-patterns.md` § 1 has the full gate.
+
 ---
 
 ## Phase 4 — lanes, cadence, and gates
@@ -147,6 +158,18 @@ passing, or someone exercising the live path?"* Record the honest answer in `TES
      fields? payment data? Does anything leave your systems to a third party? Under-declaring here is
      the common failure, which is exactly why `compliance-lens` applies its own criteria test rather
      than trusting this answer.
+8. **Compliance posture** (`COMPLIANCE_POSTURE`). Recommend `veto` to start:
+   > *"Should the compliance lens be able to **block**, or only **advise**? Blocking is safer, but it
+   > will enforce your own internal policies as though they were law, and you'll start overriding it
+   > reflexively — which kills the signal for the cases that matter. Advisory means only an explicit
+   > list of hard lines blocks."*
+   - **If they choose `advisory`, you must get the hard-line list** (`COMPLIANCE_HARD_LINES`) in the
+     same breath. Only things actually illegal or contractually binding — not things merely unwise.
+     An advisory posture with no hard lines is an off switch, and the lens is built to treat it as
+     `veto` and say so. If they can't name any, record `TBD — open question` and default to `veto`.
+9. **Masked-output tools** (`MASKED_OUTPUT_TOOLS`). Ask whether any review has to happen without the
+   underlying data entering an agent's context at all. If so, note which tools structurally cannot
+   emit the sensitive value — counts and pass/fail rather than records. Delete the row if none.
 
 ---
 
