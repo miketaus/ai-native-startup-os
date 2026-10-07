@@ -211,11 +211,15 @@ clear, the verdict cannot be `ship`.
 answer**, because under-declaring is the common failure — people usually don't know their change
 touched personal data until someone points at the field. It does this under either posture.
 
-**Compliance posture** is `veto` (default — anything the lens doesn't clear blocks a `ship` verdict)
-or `advisory` (only the hard lines above block; everything else is a recorded, visible strong
-recommendation). Pick `advisory` only if you have written the hard-line list — an advisory posture
-with no hard lines is an off switch, not a posture. Each setting has a real failure mode, both stated
-in `reference/operating-patterns.md` § 2.
+**Compliance posture** is `advisory` (default — only the hard lines above block; everything else is a
+recorded, visible strong recommendation) or `veto` (anything the lens doesn't clear blocks a `ship`
+verdict). **Choose from the business you're actually in:** `veto` for regulated industries, health or
+financial data, anything touching children, or enterprise security commitments — `advisory` for most
+early-stage software, where the realistic risk is an over-eager lens teaching you to ignore it.
+
+**The hard-line list is required either way.** An advisory posture with no hard lines is an off
+switch, not a posture, so the lens detects a missing list, falls back to `veto`, and says so. Both
+failure modes are in `reference/operating-patterns.md` § 2.
 
 **Masked-output tools** are tools whose output structurally cannot carry a sensitive value — counts,
 categories, pass/fail, never the record. List them above, because the distinction is invisible at the
@@ -224,7 +228,7 @@ call site and an agent will otherwise reach for the ordinary tool.
 | | |
 |---|---|
 | Compliance posture | {{COMPLIANCE_POSTURE}} |
-| Hard lines (required if posture is `advisory`) | {{COMPLIANCE_HARD_LINES}} |
+| Hard lines (**required** — what actually blocks) | {{COMPLIANCE_HARD_LINES}} |
 | Masked-output tools | {{MASKED_OUTPUT_TOOLS}} |
 | Regulatory regimes in scope | {{REGIMES}} |
 | Data classes we handle | {{DATA_CLASSES}} |

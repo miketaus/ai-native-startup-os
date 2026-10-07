@@ -158,15 +158,21 @@ rather than a system approving its own work. `reference/operating-patterns.md` �
      fields? payment data? Does anything leave your systems to a third party? Under-declaring here is
      the common failure, which is exactly why `compliance-lens` applies its own criteria test rather
      than trusting this answer.
-8. **Compliance posture** (`COMPLIANCE_POSTURE`). Recommend `veto` to start:
-   > *"Should the compliance lens be able to **block**, or only **advise**? Blocking is safer, but it
-   > will enforce your own internal policies as though they were law, and you'll start overriding it
-   > reflexively — which kills the signal for the cases that matter. Advisory means only an explicit
-   > list of hard lines blocks."*
-   - **If they choose `advisory`, you must get the hard-line list** (`COMPLIANCE_HARD_LINES`) in the
-     same breath. Only things actually illegal or contractually binding — not things merely unwise.
-     An advisory posture with no hard lines is an off switch, and the lens is built to treat it as
-     `veto` and say so. If they can't name any, record `TBD — open question` and default to `veto`.
+8. **Compliance posture** (`COMPLIANCE_POSTURE`). **Recommend from what § 9 just told you**, not from
+   a fixed default — this one genuinely depends on the business:
+   - **Recommend `veto`** if the sensitive surface includes health or financial data, children or
+     minors, a named regulatory regime, or enterprise contracts with security commitments. Say why:
+     *"a single exposure here is the kind that ends companies, so the friction is the point."*
+   - **Recommend `advisory`** (the default) otherwise — most early-stage software. Say why: *"the
+     realistic risk isn't that you ship an exposure, it's that an over-eager lens teaches you to
+     click past it. Advisory keeps the argument and drops the roadblock."*
+   > *"Should the compliance lens be able to **block** a ship verdict, or make its case and let you
+   > decide? Either way it runs and argues just as hard — the difference is whether it can stop you."*
+   - **Get the hard-line list** (`COMPLIANCE_HARD_LINES`) either way, in the same breath. Only things
+     actually illegal or contractually binding — not things merely unwise. An advisory posture with no
+     hard lines is an off switch, and the lens is built to detect that, fall back to `veto`, and say
+     so. If they can't name any, record `TBD — open question` and tell them the lens will behave as
+     `veto` until they do.
 9. **Masked-output tools** (`MASKED_OUTPUT_TOOLS`). Ask whether any review has to happen without the
    underlying data entering an agent's context at all. If so, note which tools structurally cannot
    emit the sensitive value — counts and pass/fail rather than records. Delete the row if none.

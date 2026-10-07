@@ -226,21 +226,32 @@ write aspirational policy. Work stops on things nobody is legally or contractual
 the operator starts overriding reflexively, and the signal dies exactly where it was supposed to be
 strongest.
 
-**Resolution.** `PROFILE.md` § 9 adds `compliance_posture`, **defaulting to `veto`**. Under
-`advisory`, only an explicit written hard-line list blocks; everything else becomes
-`RECOMMEND-AGAINST` — recorded, visible, argued at full strength, but not blocking. The analysis never
-gets softer; only its effect changes.
+**Resolution.** `PROFILE.md` § 9 adds `compliance_posture`, **defaulting to `advisory`**. Only an
+explicit written hard-line list blocks; everything else becomes `RECOMMEND-AGAINST` — recorded,
+visible, argued at full strength, but not blocking. The analysis never gets softer; only its effect
+changes.
 
-**The guard:** `advisory` with no hard-line list is an off switch, not a posture. The lens is built to
-detect that case, treat it as `veto`, and say so out loud.
+**Why this default moved and the merge one didn't.** Invariant 5 originally made the veto mandatory
+because under-declaring exposure is the common failure. That reasoning is still right about *detection*
+— which is why the criteria test is untouched and still runs under both postures. It was wrong about
+*enforcement*. A lens that blocks on self-imposed policy trains the operator to click past it, and an
+override nobody reads is worse than a recommendation they argue with. The posture is now chosen from
+the business: `veto` where a single exposure is existential (health, financial, children, named
+regimes, enterprise security commitments), `advisory` for most early-stage software.
+
+**The guard:** `advisory` with no hard-line list is an off switch, not a posture. The lens detects
+that case, falls back to `veto`, and says so out loud — so the failure mode of skipping the question
+is *more* strictness, never less.
 
 ### Why defaults didn't move
 
-Both of these were learned at one company, with one operator, at one stage. That is `DID`-grade
-evidence about this harness, not `PAID`. Changing a default silently changes behaviour for everyone
-who installs it; adding an option with its failure mode stated lets each operator make their own call
-with the trade-off in front of them. **Flipping a default is the operator's decision, never an
-agent's** — including the agent that learned the lesson.
+Both were learned at one company, with one operator, at one stage — `DID`-grade evidence about this
+harness, not `PAID`. So both shipped as options with their failure modes stated, and **flipping a
+default is the operator's decision, never an agent's**, including the agent that learned the lesson.
+
+The operator subsequently made that call on compliance: **`advisory` by default, `veto` as the
+business warrants it.** `merge_authority` still defaults to `operator`, because nobody has made the
+equivalent call there and an agent should not make it by inference.
 
 ## Invariants — do not optimize these away
 
@@ -248,7 +259,9 @@ agent's** — including the agent that learned the lesson.
 2. **Read, don't recall.** Figures come from files. The file wins.
 3. **Every judgment lens declares its bias.** The three that don't are marked deliberate.
 4. **`red-team` is not balanced.** That is the feature.
-5. **`compliance-lens` can veto, and applies a criteria test** rather than trusting a self-declaration.
+5. **`compliance-lens` applies its own criteria test** rather than trusting a self-declaration — under
+   every posture, without exception. Whether it can *block* on what it finds is the operator's choice
+   (`compliance_posture`, default `advisory`); whether it *looks* is not.
 6. **Evidence grades everywhere.** Reject planning that rests on `SAID` alone.
 7. **Model tiers live in agent frontmatter.** `PROFILE.md` § 10 *records* them. Never restate a tier
    inside a skill — duplicated tiers drift, and then the documentation becomes the bug. **The same

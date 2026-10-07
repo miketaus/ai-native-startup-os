@@ -52,26 +52,33 @@ not a gate.
 
 ## 2. Compliance posture: veto or advisory
 
-**The tension.** A compliance lens that can block is the right default — under-declaring exposure is
-the common failure, and a lens that only advises gets ignored precisely when it matters.
+**The tension.** A compliance lens that can block looks like the safe default. In practice a blocking
+lens doesn't distinguish *illegal* from *our own stated policy*, and every team writes aspirational
+policy. The lens treats it as a hard line, work stops on something nobody is legally or contractually
+required to do, and the operator starts overriding reflexively — which destroys the signal for the
+cases that are real. A veto used on hygiene is a veto nobody respects.
 
-But in practice a blocking lens tends to enforce *self-imposed* internal rules with the same force as
-actual law. Teams write an aspirational policy, the lens treats it as a hard line, and work stops on
-something nobody is legally or contractually required to do. The lens becomes an obstacle rather than
-a safeguard, and the operator starts overriding it reflexively — which destroys the signal for the
-cases that are real.
-
-**The pattern.** Make the posture explicit in `PROFILE.md` § 9:
+**The pattern.** Make the posture explicit in `PROFILE.md` § 9, and **choose it from the business you
+are actually in:**
 
 | `compliance_posture` | What blocks | Failure mode to accept |
 |---|---|---|
-| **`veto`** *(default)* | Anything the lens does not clear on the sensitive surface. | Self-imposed policy gets enforced as law. Reflexive overrides erode the signal. |
-| **`advisory`** | Only a short, explicit list of hard lines. Everything else is a strong recommendation, recorded and visible. | A real exposure gets noted and shipped past anyway. |
+| **`advisory`** *(default)* | Only a short, explicit list of hard lines. Everything else is a strong recommendation, recorded and visible. | A real exposure gets noted and shipped past anyway. |
+| **`veto`** | Anything the lens does not clear on the sensitive surface. | Self-imposed policy gets enforced as law. Reflexive overrides erode the signal. |
 
-**If you choose `advisory`, you must write the hard-line list.** An advisory posture with no hard
-lines is not a posture — it's an off switch. The list belongs in § 9, it should be short enough to
-remember, and it should contain only things that are actually illegal or contractually binding, not
-things that are merely unwise.
+**Choose `veto` when the business warrants it.** Regulated industries, health or financial data,
+anything touching children, enterprise contracts with security commitments, or any domain where a
+single exposure is existential. The friction is the point there, and reflexive overriding is a
+discipline problem to solve rather than a reason to loosen the gate.
+
+**Choose `advisory` for everything else** — most early-stage software, where the realistic risk is
+that an over-eager lens teaches you to ignore it.
+
+**Either way, write the hard-line list.** An advisory posture with no hard lines is not a posture —
+it's an off switch. Because `advisory` is the default, this matters more, not less: the lens is built
+to detect a missing list, **fall back to `veto`, and say so out loud.** Failing closed is the whole
+point. The list belongs in § 9, it should be short enough to remember, and it should contain only
+things actually illegal or contractually binding, not things merely unwise.
 
 Under either posture the lens still runs its own criteria test and still never accepts "this doesn't
 touch anything sensitive" as an input.
