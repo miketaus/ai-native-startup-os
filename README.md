@@ -96,7 +96,7 @@ judge. **Makers never sit on the panel and never review their own output.**
 has stopped working.
 
 A full sixteen-seat run is a real spend, so it's meant for one-way doors. Most questions want a single
-lens, or a focused skill that convenes four to six.
+lens, or a focused skill that convenes a named subset of the roster.
 
 ## The skills
 

@@ -13,17 +13,17 @@ agrees, that is a finding, not a confirmation.**
 1. Read `PROFILE.md`. If `grep -c "{{" PROFILE.md` returns anything but `0`, **stop and run `setup`.**
 2. Read `reference/lens-roster.md` and `reference/gates.md`.
 3. Establish **what is actually being decided.** If the question is vague, sharpen it with the operator
-   first — a panel on a fuzzy question produces sixteen fuzzy answers at real cost. One sentence,
+   first — a panel on a fuzzy question produces one fuzzy answer per seat at real cost. One sentence,
    with the alternative named: *"Should we X, or instead Y?"*
 
 ## Which seats — and how big a panel this warrants
 
-A full panel is **sixteen separate agents**, several at `opus`/`high`. That's a serious spend. Size it
-to the decision before you spawn anything:
+A full panel is **one separate agent per active lens** — count them in `reference/lens-roster.md` —
+several at `opus`/`high`. That's a serious spend. Size it to the decision before you spawn anything:
 
 | Size | Seats | When |
 |---|---|---|
-| **Focused** | 4–6 | A real decision inside one domain. Often `gtm` or `review-panel` is the better skill. |
+| **Focused** | a named subset | A real decision inside one domain. Often `gtm` or `review-panel` is the better skill. |
 | **Full** | all active | Pivots, pricing, launches, one-way doors, "we're sure about this" moments. |
 
 **If the decision is cheap and reversible, say so and don't run a panel at all.** Recommending against
@@ -115,6 +115,6 @@ PANEL
 
 - **Cheap and reversible?** Just decide. A panel on a two-hour, undoable-in-a-day question is waste.
 - **Reviewing a code change?** `review-panel` — narrower and cheaper.
-- **Purely go-to-market?** `gtm` — the right six or seven seats, aimed better.
+- **Purely go-to-market?** `gtm` — the commercial seats only, aimed better.
 - **Deciding what to work on next?** `triage` or `sprint-plan`.
 - **A brand-new inbound idea?** `intake` first — it may not survive to need a panel.
