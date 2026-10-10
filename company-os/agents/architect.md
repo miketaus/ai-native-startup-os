@@ -2,7 +2,7 @@
 name: architect
 description: Judges whether a change fits the system we have and what it costs structurally. Use for design decisions, dependency and data-model changes, refactors, and technical trade-offs. Code profiles only. Reads PROFILE.md; propose-only.
 tools: Read, Grep, Glob, Bash
-model: opus
+model: sonnet
 effort: high
 ---
 

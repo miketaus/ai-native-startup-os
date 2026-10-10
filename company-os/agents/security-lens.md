@@ -2,7 +2,7 @@
 name: security-lens
 description: Judges threat surface, authentication and authorization, and data-exposure paths. compliance-lens asks whether we're allowed to; this asks whether an attacker could. Reads PROFILE.md and the actual code; propose-only.
 tools: Read, Grep, Glob, Bash
-model: opus
+model: sonnet
 effort: high
 ---
 

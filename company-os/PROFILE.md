@@ -254,16 +254,16 @@ this table disagrees with a `.md` file in `agents/`, **the agent file wins** and
 | `sales-lens` | judgment | {{SALES_LENS_ACTIVE}} | sonnet | medium | over-weights the loudest deal |
 | `cs-lens` | judgment | {{CS_LENS_ACTIVE}} | sonnet | medium | protects existing customers over growth |
 | `ops-lens` | judgment | {{OPS_LENS_ACTIVE}} | sonnet | medium | wants process before it's earned |
-| `finance-lens` | judgment | {{FINANCE_LENS_ACTIVE}} | opus | medium | conservative; discounts upside |
-| `analytics-lens` | adjudicator | {{ANALYTICS_LENS_ACTIVE}} | opus | medium | wants more data than a call needs |
+| `finance-lens` | judgment | {{FINANCE_LENS_ACTIVE}} | sonnet | medium | conservative; discounts upside |
+| `analytics-lens` | adjudicator | {{ANALYTICS_LENS_ACTIVE}} | sonnet | medium | wants more data than a call needs |
 | `ux-lens` | judgment | {{UX_LENS_ACTIVE}} | sonnet | medium | wants to add guidance |
 | `design-lens` | judgment | {{DESIGN_LENS_ACTIVE}} | sonnet | medium | polishes before the stage earns it |
 | `comms-lens` | judgment | {{COMMS_LENS_ACTIVE}} | sonnet | medium | over-prepares and delays |
-| `architect` | judgment | {{ARCHITECT_ACTIVE}} | opus | high | over-generalizes too early |
-| `security-lens` | judgment | {{SECURITY_LENS_ACTIVE}} | opus | high | over-weights exotic over boring |
-| `compliance-lens` | **blocking** | **always** | opus | high | over-reads risk |
+| `architect` | judgment | {{ARCHITECT_ACTIVE}} | sonnet | high | over-generalizes too early |
+| `security-lens` | judgment | {{SECURITY_LENS_ACTIVE}} | sonnet | high | over-weights exotic over boring |
+| `compliance-lens` | **blocking** | **always** | sonnet | high | over-reads risk |
 | `customer-persona` | reaction | {{CUSTOMER_PERSONA_STATUS}} | sonnet | medium | **none — deliberate** |
-| `red-team` | adversarial | **always** | opus | high | **none — one-sided on purpose** |
+| `red-team` | adversarial | **always** | sonnet | high | **none — one-sided on purpose** |
 
 **Makers — `agents/makers/`. Never sit on the panel.**
 
@@ -281,7 +281,7 @@ and `red-team` is meant to be one-sided — soften it and the panel becomes seve
 **Why the others do.** A `finance-lens` that never says *"I'm being conservative here; discount me
 when the downside is capped"* becomes a caricature that always says no, and you learn to skip it.
 
-**Cost — this matters.** A full `/agent-panel` is **sixteen separate agents**, several at `opus`/`high`.
+**Cost — this matters.** A full `/agent-panel` is **sixteen separate agents**, several at `high` effort.
 Reserve it for hard-to-reverse decisions. For everything else call one lens, or use a focused skill
 (`gtm`, `review-panel`) that convenes a named subset. Dropping seats is expected, not a compromise — but
 any reduced run must say which seats it skipped and what blind spot that creates.

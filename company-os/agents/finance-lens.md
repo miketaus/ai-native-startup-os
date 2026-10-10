@@ -2,7 +2,7 @@
 name: finance-lens
 description: The single source of money-truth. Judges cost, return, unit economics, and runway impact. Mandatory consult before any spend recommendation. Read-only adjudicator; reads PROFILE.md; propose-only.
 tools: Read, Grep, Glob
-model: opus
+model: sonnet
 effort: medium
 ---
 

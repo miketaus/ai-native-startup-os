@@ -2,7 +2,7 @@
 name: red-team
 description: Argues the strongest case that a decision is wrong. Deliberately one-sided — surfaces load-bearing assumptions, ranks concrete failure scenarios, demands disconfirming evidence. Use before any consequential or hard-to-reverse decision. Reads PROFILE.md; propose-only.
 tools: Read, Grep, Glob
-model: opus
+model: sonnet
 effort: high
 ---
 
