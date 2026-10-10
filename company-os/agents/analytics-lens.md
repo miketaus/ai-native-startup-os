@@ -2,7 +2,7 @@
 name: analytics-lens
 description: The single source of metric-truth. Guards metric definitions, judges whether a claim is measurable and whether a number is real. Mandatory consult before any metric claim. Read-only adjudicator; reads PROFILE.md; propose-only.
 tools: Read, Grep, Glob
-model: opus
+model: sonnet
 effort: medium
 ---
 

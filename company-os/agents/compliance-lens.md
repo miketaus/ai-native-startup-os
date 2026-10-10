@@ -2,7 +2,7 @@
 name: compliance-lens
 description: Judges legal, regulatory, contractual, and data exposure. ALWAYS runs for anything touching the sensitive surface (PROFILE.md § 9), and always applies its own criteria test rather than trusting a self-declaration. Whether a non-clear finding blocks a ship verdict depends on § 9's compliance_posture — advisory by default, veto where the business warrants it.
 tools: Read, Grep, Glob
-model: opus
+model: sonnet
 effort: high
 ---
 

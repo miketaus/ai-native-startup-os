@@ -160,7 +160,7 @@ analytics vs growth.
 
 ### Cost is now a first-class concern
 
-Sixteen lenses is sixteen agents, several at `opus`/`high`. The harness therefore documents three
+Sixteen lenses is sixteen agents, some at `opus`/`high`. The harness therefore documents three
 panel sizes — single lens, focused (a named subset, usually via `gtm` or `review-panel`), and full —
 and requires any reduced run to **name the seats it dropped and the blind spot each drop creates.**
 A silently reduced panel is one the operator over-trusts.
