@@ -118,7 +118,7 @@ this table disagree, **the skill file wins** on *which* lenses and this row is s
 
 ## Cost — read this before running a full panel
 
-Sixteen lenses is **sixteen separate agents**, several at `high` effort. A full `/agent-panel` is a
+Sixteen lenses is **sixteen separate agents**, some at `opus`/`high`. A full `/agent-panel` is a
 serious spend and should be reserved for genuinely consequential, hard-to-reverse decisions.
 
 Three sensible sizes:

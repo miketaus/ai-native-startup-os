@@ -19,7 +19,7 @@ agrees, that is a finding, not a confirmation.**
 ## Which seats — and how big a panel this warrants
 
 A full panel is **one separate agent per active lens** — count them in `reference/lens-roster.md` —
-several at `high` effort. That's a serious spend. Size it to the decision before you spawn anything:
+some at `opus`/`high`. That's a serious spend. Size it to the decision before you spawn anything:
 
 | Size | Seats | When |
 |---|---|---|
