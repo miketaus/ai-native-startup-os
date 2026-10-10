@@ -16,6 +16,44 @@ Two halves. The playbook is the **substrate** — what a company has to decide. 
 substrate; the harness is the 20% that makes it run.
 [`RECONCILIATION.md`](./RECONCILIATION.md) explains how they fit together and where they disagreed.
 
+Both came out of building [Aiko](https://helloaiko.co/) without a team. [Where this came from](#where-this-came-from) ↓
+
+---
+
+## Where this came from
+
+I built this while building [**Aiko**](https://helloaiko.co/), an AI college advisor for families that
+my co-founder and I run — part-time, with no outside funding and no engineering hire. None of it was
+designed as a product. It accumulated as the scaffolding I needed to ship without a team, and I pulled
+it out afterward because the shape turned out to be general.
+
+The lineage is visible if you know where to look:
+
+- **The sixteen lenses started as nine review personas** — architect, first-time user, designer,
+  copywriter, QA, finance, analytics, compliance — that I ran over my own work because there was
+  nobody else to ask. Eight of those nine are still here. (QA turned out to be a *gate*, not a
+  reviewer, so it became a skill.)
+- **"Read, don't recall" started as one line in a system prompt:** *when a file and the model
+  disagree, the file wins.* It now appears in sixteen files in this repo, because it's the rule
+  everything else depends on.
+
+What forced the rest was a specific failure. Once AI was writing the code, **the bottleneck moved to
+my own judgment and my own hours** — and my build loop eventually shipped *nothing at all*, because I
+couldn't review the work fast enough to let any of it through. Everything here about cheap gates,
+propose-only defaults, and spending the founder's attention only on decisions that are genuinely
+theirs comes directly out of that.
+
+I wrote up the thinking behind it for Techstars: [**The only part you can't
+bootstrap**](https://www.techstars.com/blog/founder-advice/the-only-part-you-can-t-bootstrap). The
+short version is that building is cheap now, so the scarce thing is having something *true* to build
+against — real expertise you can't download. **This harness is the assembly. It is not the thing worth
+assembling.** If you install it over a company with no instrumentation and no customer evidence, you
+get sixteen articulate agents with nothing to reason about.
+
+**The honest grade on all of this: one company, one operator, one stage.** It's been generalized and
+stripped of anything Aiko-specific, but it hasn't been proven anywhere else yet. If you run it and it
+breaks somewhere I didn't anticipate, I'd genuinely like to hear about it.
+
 ---
 
 ## Install the harness
