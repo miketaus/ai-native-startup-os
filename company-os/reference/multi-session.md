@@ -105,13 +105,13 @@ coordinating, and nobody notices because it is still busy.
 - **Reads the pace and posts it:** allowance used against time elapsed, and the day it runs out
   (`usage-and-cost.md` § 1).
 - **Owns the roster, the lane map and the schedule registry** (`operating-patterns.md` § 14).
-- **Watches the merge queue and the deploy.** It does not merge unless merging is its lane.
+- **Watches the merge queue and the deploy.** It does not merge: merging is the merge-train session's lane.
 - **Is where disputes land:** two lanes that want one file, a stranded commit, a refusal that has to
   go to the operator rather than sideways to another session.
 - **Sets the messaging rules for everyone (§ 5) and follows them first,** because its own context is
   usually the largest bill on the table.
 
-**Two ways it fails.** It becomes the bottleneck, with every session waiting on it — so sessions act
+**Two ways it can fail** (neither is recorded as an incident here). It becomes the bottleneck, with every session waiting on it — so sessions act
 inside their own lane without asking and only file items for what is the operator's. Or it drifts into
 doing a lane's work, which the table above forbids.
 
