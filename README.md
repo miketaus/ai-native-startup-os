@@ -54,7 +54,8 @@ get sixteen articulate agents with nothing to reason about.
 stripped of anything Aiko-specific, but it hasn't been proven anywhere else yet.
 
 The newest material is also the least proven. The last six weeks were run with around a dozen
-long-lived sessions in parallel, and that is where the later patterns in
+long-lived sessions at once and one of them coordinating the rest, and that is where the later
+patterns in
 [`operating-patterns.md`](./company-os/reference/operating-patterns.md), plus
 [`multi-session.md`](./company-os/reference/multi-session.md) and
 [`usage-and-cost.md`](./company-os/reference/usage-and-cost.md), come from. Each carries an
@@ -199,7 +200,7 @@ actually been observed. Start with [`operating-patterns.md`](./company-os/refere
 | **A prompt line isn't a control** | Put the check in code; hand the model outputs, not inputs |
 | **Memory is a lead for volatile facts** | Re-read at the moment you state them |
 | **Recurring means persistent** | Schedules that outlive the session, in one registry |
-| **Many sessions, one allowance** | [Worktrees, lanes, the price of a message](./company-os/reference/multi-session.md); [the levers that moved cost](./company-os/reference/usage-and-cost.md) |
+| **Coordinating many sessions** | [Worktrees, lanes, a coordinator, the price of a message](./company-os/reference/multi-session.md); [the shared allowance and the levers that moved it](./company-os/reference/usage-and-cost.md) |
 
 ## What's deliberately blank
 
