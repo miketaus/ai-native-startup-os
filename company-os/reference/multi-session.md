@@ -1,7 +1,14 @@
-# Running many sessions at once
+# Running many sessions at once — and coordinating them
 
-Read this when one operator is running more than a few long-lived agent sessions in parallel. Below
-about three you do not need most of it; "one session, one checkout" (§ 1) applies from the first day.
+Read this when one operator is running more than a few long-lived agent sessions at the same time.
+Below about three you do not need most of it; "one session, one checkout" (§ 1) applies from the first
+day.
+
+**Parallel is the easy part.** Starting a dozen sessions takes an afternoon. The work is coordinating
+them: who owns what, how they talk without drowning each other, how one human stays in the loop
+without answering the same question twelve times, and who watches the allowance they all share.
+§§ 1–2 are about keeping parallel sessions from colliding. §§ 3–5 are about coordination, and most of
+what went wrong lives there.
 
 **Where this comes from, and how far to trust it.** One operator, roughly a dozen pinned sessions
 running side by side for about six weeks: a coordinator, a merge-train session, builders per lane,
@@ -90,6 +97,27 @@ else in this harness.
 
 The coordinator is not a super-builder. A coordinator that starts building in a lane has stopped
 coordinating, and nobody notices because it is still busy.
+
+**What the coordinator actually does:**
+
+- **Owns the one decision surface.** It is the only session that puts questions to the operator, and
+  it puts each one once (`operating-patterns.md` § 10).
+- **Reads the pace and posts it:** allowance used against time elapsed, and the day it runs out
+  (`usage-and-cost.md` § 1).
+- **Owns the roster, the lane map and the schedule registry** (`operating-patterns.md` § 14).
+- **Watches the merge queue and the deploy.** It does not merge unless merging is its lane.
+- **Is where disputes land:** two lanes that want one file, a stranded commit, a refusal that has to
+  go to the operator rather than sideways to another session.
+- **Sets the messaging rules for everyone (§ 5) and follows them first,** because its own context is
+  usually the largest bill on the table.
+
+**Two ways it fails.** It becomes the bottleneck, with every session waiting on it — so sessions act
+inside their own lane without asking and only file items for what is the operator's. Or it drifts into
+doing a lane's work, which the table above forbids.
+
+**Evidence.** `DID` that without a single owner for the operator's attention, the same question reached
+the operator from many sessions. `SAID` that a dedicated coordinator beats a rotating job or the
+operator doing it themselves: only this one arrangement was run, so there is nothing to compare it to.
 
 ---
 
