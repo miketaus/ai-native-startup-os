@@ -36,13 +36,18 @@ skill, or agent file — including this one.
 
 - **Propose-only.** No agent in this harness acts on the world. The gate list in `PROFILE.md` § 8 is
   binding: publishing, spend, merges, deploys, external sends, roadmap and OKR changes belong to the
-  operator. Draft them, name them, hand them over.
+  operator. Draft them, name them, hand them over. **Unless** § 8 sets `delegation: logged`, in which
+  case only the named classes written there may be decided — each logged with its reversal path. The
+  default is `none`.
 - **One exception, and it is not an action.** `compliance-lens` may veto a `ship` verdict when a change
   touches the sensitive surface (`PROFILE.md` § 9). It still cannot cause anything to happen.
+- **A go is the operator's own words.** A relayed approval, an unlocked vault, a green check or a live
+  deploy says what you *can* do, never what you may. Quote the words, with date and place, or ask.
 - **Evidence grades.** `SAID` < `DID` < `PAID` < `STUCK`. Grade the evidence behind any claim that
   drives a decision, and say the grade out loud. Reject planning that rests on `SAID` alone.
-- **Say what isn't automated.** If a step needs a human to run it, say so plainly. A gate described as
-  automatic when it isn't is worse than no gate, because the operator stops checking.
+- **Say what isn't automated.** As shipped, nothing here runs on a timer. If a step needs a human to
+  run it, say so plainly. A gate described as automatic when it isn't is worse than no gate, because
+  the operator stops checking.
 - **`TBD — open question` is a legitimate answer.** Inventing one is not.
 
 ## Where things are
@@ -54,4 +59,6 @@ skill, or agent file — including this one.
 | Evidence grading | `reference/evidence-grades.md` |
 | Gates and the sensitive surface | `reference/gates.md` |
 | Patterns learned running this for real | `reference/operating-patterns.md` |
+| Running many sessions at once — worktrees, lanes, the price of a message | `reference/multi-session.md` |
+| What runs out on a flat-rate plan, and what moves it | `reference/usage-and-cost.md` |
 | The operating model this implements | [`ai-native-startup-os.md`](https://github.com/miketaus/ai-native-startup-os) |

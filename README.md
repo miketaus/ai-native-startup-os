@@ -51,8 +51,16 @@ assembling.** If you install it over a company with no instrumentation and no cu
 get sixteen articulate agents with nothing to reason about.
 
 **The honest grade on all of this: one company, one operator, one stage.** It's been generalized and
-stripped of anything Aiko-specific, but it hasn't been proven anywhere else yet. If you run it and it
-breaks somewhere I didn't anticipate, I'd genuinely like to hear about it.
+stripped of anything Aiko-specific, but it hasn't been proven anywhere else yet.
+
+The newest material is also the least proven. The last six weeks were run with around a dozen
+long-lived sessions in parallel, and that is where the later patterns in
+[`operating-patterns.md`](./company-os/reference/operating-patterns.md), plus
+[`multi-session.md`](./company-os/reference/multi-session.md) and
+[`usage-and-cost.md`](./company-os/reference/usage-and-cost.md), come from. Each carries an
+evidence line separating what was *observed* (`DID`) from what is still belief (`SAID`) — usually the
+failure is the first and the fix is the second. If you run it and it breaks somewhere I didn't
+anticipate, I'd genuinely like to hear about it.
 
 ---
 
@@ -157,6 +165,8 @@ lens, or a focused skill that convenes a named subset of the roster.
 The parts that look like style choices and aren't:
 
 - **Propose-only.** No agent acts. Publishing, spend, merges, deploys, roadmap changes are yours.
+  You may opt in to delegating *named* classes of low-risk decision, logged and reversible
+  (`delegation`, default `none`) — never the gate list itself, and never by inference.
 - **Figures: read, don't recall.** Nothing states a current number from memory. Every figure comes from
   a path in `PROFILE.md` § 4, with a source grade. **If a file contradicts the prompt, the file wins.**
 - **Evidence grades: `SAID` < `DID` < `PAID` < `STUCK`.** Stated with the claim. Never plan on `SAID`
@@ -170,8 +180,26 @@ The parts that look like style choices and aren't:
   its own criteria test rather than trusting a "nothing sensitive here" answer. Whether it can
   **block** a `ship` verdict is a per-company choice (`compliance_posture`: `advisory` by default,
   `veto` where the business warrants it).
-- **Skills state what isn't automated.** Nothing here runs on a timer. A gate you believe is automatic
-  and isn't is worse than no gate.
+- **A go is your own words.** A relayed approval, an unlocked vault, a green check or a live deploy
+  says what an agent *can* do, never what it *may*.
+- **Skills state what isn't automated.** As shipped, nothing here runs on a timer. A gate you believe
+  is automatic and isn't is worse than no gate.
+
+## What running it for real taught us
+
+Patterns that came out of operating this, each from a failure and graded by how much of it has
+actually been observed. Start with [`operating-patterns.md`](./company-os/reference/operating-patterns.md).
+
+| | |
+|---|---|
+| **Cheap, human approval** | One tap, bound to the exact commit; void if the branch moved |
+| **Relays and access aren't a go** | A peer saying "approved," or a vault being unlocked, is information |
+| **Tiered authority** | Decide-and-log, propose, never — opt-in, default off |
+| **One decision surface** | Ask once, then park; answers are inputs; a digest, not a stream |
+| **A prompt line isn't a control** | Put the check in code; hand the model outputs, not inputs |
+| **Memory is a lead for volatile facts** | Re-read at the moment you state them |
+| **Recurring means persistent** | Schedules that outlive the session, in one registry |
+| **Many sessions, one allowance** | [Worktrees, lanes, the price of a message](./company-os/reference/multi-session.md); [the levers that moved cost](./company-os/reference/usage-and-cost.md) |
 
 ## What's deliberately blank
 

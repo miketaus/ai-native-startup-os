@@ -254,6 +254,15 @@ Baseline before scaling past pilot: function- and sensitivity-scoped vaults · l
 retrieval (no plaintext) · audit review of access · no personal vaults for org credentials · no
 long-lived secrets in repos/shell history/chat. **Non-negotiable:** credentials never enter a prompt.
 
+**Machine access in practice.** What breaks first is not the vault but the *unattended* read.
+Interactive CLI approvals expire (per the vendor's documentation: a short idle period, a hard maximum,
+and per terminal session — check the current values), so any job that runs while the operator is away
+needs a **scoped, read-only service account**: token in an owner-only file outside the repo, sourced in
+a subshell for the one command, never exported or echoed. Creating or restoring that token is a human
+step. Timeouts must kill the secret-manager process itself, not just the shell around it, and rate
+limits are per token and per account — a dozen sessions share them. See
+`company-os/reference/operating-patterns.md` § 15.
+
 ---
 
 ## 6. Governance & promotion path
@@ -268,7 +277,9 @@ draft (Google Docs / chat) → clean+templatize → submit to org-os → functio
 ```
 
 All agent-team output is **propose-only**: nothing is published, spent, committed to canon, or sent
-externally without the **human gate** (the accountable leader approves).
+externally without the **human gate** (the accountable leader approves). An operator may opt in to
+delegating *named* classes of low-risk decision, logged and reversible; nothing on the gate list is
+delegated by inference (`company-os/reference/gates.md`).
 
 ### 6.0 Two invariants every agent config inherits
 
@@ -441,6 +452,8 @@ Examples (tune per org):
 **Guardrails (carried from the build doctrine):** one session per checkout (isolated git worktrees so
 teams don't switch branches under each other) · narrow file lanes · small frequent merges · cross-team
 dependencies declared up front · QA is a **gate**, never a build teammate · everything propose-only.
+Past about three parallel sessions, add a roster, the price-of-a-message rules and the cost levers in
+`company-os/reference/multi-session.md` and `company-os/reference/usage-and-cost.md`.
 
 ### 8.4 Red-team agent — optional, per user (and per leader/workstream)
 
