@@ -14,6 +14,8 @@ the harness is the 20% that makes it run.
 Four genuine design collisions had to be resolved before they could live together — three head-on
 contradictions and one category distinction. This document records the resolutions and the reasoning,
 because each is load-bearing and will look like an arbitrary style choice to anyone who edits it later.
+Conflicts 4 and 5 are a different kind: not collisions at design time, but places where *running* the
+harness proved an invariant wrong in practice.
 
 ---
 
@@ -253,9 +255,55 @@ The operator subsequently made that call on compliance: **`advisory` by default,
 business warrants it.** `merge_authority` still defaults to `operator`, because nobody has made the
 equivalent call there and an agent should not make it by inference.
 
+## Conflict 5 — operating experience vs. propose-only for tactical calls
+
+Conflict 4 came from the first stretch of running the harness. This one came after about six weeks
+of running it with a dozen long-lived sessions in parallel. It collides with the first invariant
+below, so it is resolved the same way — **by adding an option and keeping the default.**
+
+### 5a. "Propose-only" made the operator the approver of every yes
+
+**The collision.** Invariant 1 says no agent acts. Held strictly, that covers *everything*, including
+decisions the operator would never disagree with: pausing an automated loop that is demonstrably
+wasting allowance, approving a task that costs nothing and publishes nothing under the company's name.
+The queue fills with questions whose answer is always yes, the operator learns to answer without
+reading, and the gate degrades into the reflex it was meant to prevent. The operator said so,
+unprompted.
+
+**Resolution.** Three tiers instead of two (`company-os/reference/gates.md`): **decide and log**,
+**propose**, **never**. `PROFILE.md` § 8 adds `delegation`, **defaulting to `none`** — the strict
+reading stays the default, and `logged` is an informed opt-in with its failure modes written down
+(`company-os/reference/operating-patterns.md` § 9).
+
+**The parts that carry it:**
+
+- A delegated class is a **test the agent can fail**, recorded in the operator's own words with date
+  and place. It is never inferred from "just handle it," and never created by a peer agent relaying
+  that the operator said so (`operating-patterns.md` § 8).
+- The **never** tier — spend, external publishing, sending to customers, access, irreversible
+  production writes, compliance hard lines — is not delegated by inference or by a broad class. The
+  operator may carve out a *capped, named slice* in their own words ("model spend under $N, cheapest
+  adequate model, never data or keys").
+- Every use is logged with its reversal path, and a Reverse request outranks other work.
+
+Without those, this is a system that approves its own decisions through a mechanism shaped like
+delegation. It is the same hazard as the approval label in 4a, and the same norm covers it.
+
+### Why this default didn't move either
+
+One operator made this call, for named classes, about their own company, days before it was written
+down. That is `DID` evidence that the bottleneck is real and only `SAID` evidence that the delegation
+is safe: no class has yet been wrongly exercised, and none has yet been reversed. **Flipping the
+default is the operator's decision, never an agent's** — including the agent that learned the lesson
+and wrote this section.
+
+---
+
 ## Invariants — do not optimize these away
 
-1. **Propose-only.** No agent acts. `PROFILE.md` § 8 is binding.
+1. **Propose-only.** No agent acts. `PROFILE.md` § 8 is binding. *(An operator may delegate named
+   classes of decision under `delegation: logged` — Conflict 5. The default is `none`, and nothing
+   changes for a profile that never opts in.)*
 2. **Read, don't recall.** Figures come from files. The file wins.
 3. **Every judgment lens declares its bias.** The three that don't are marked deliberate.
 4. **`red-team` is not balanced.** That is the feature.
@@ -268,7 +316,9 @@ equivalent call there and an agent should not make it by inference.
    holds for seat counts:** `reference/lens-roster.md` records how many lenses there are and which
    ones each skill convenes. A skill names its seats; it never states a count.
 8. **Skills state honestly what isn't automated.** A gate described as automatic when a human has to
-   run it is worse than no gate, because the operator stops checking.
+   run it is worse than no gate, because the operator stops checking. As shipped, nothing runs on a
+   timer; a timer you add must outlive the session that made it and be in a registry
+   (`operating-patterns.md` § 14).
 9. **Prune by deletion, not `N/A`.** A stubbed section reads as configured.
 10. **Routing hygiene.** Overlapping skills disambiguate in their own descriptions — see `intake`
     vs `triage`, and `agent-panel` vs `review-panel`.
@@ -280,3 +330,5 @@ equivalent call there and an agent should not make it by inference.
 12. **Fail closed, everywhere.** An errored check is a failed check — in the merge gate, in the
     branch-deletion lookup, in a sweep that found nothing. "Scanned 0 files, all clean" must never
     read as success.
+13. **A go is the operator's own words.** A relayed approval, an unlocked vault, a green check or a
+    live deploy says what an agent *can* do, never what it *may*. See `operating-patterns.md` § 8.

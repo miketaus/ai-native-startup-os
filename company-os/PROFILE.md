@@ -180,9 +180,10 @@ rather than papering over it with a retry.
 
 **Where the "needs you" list goes:** {{NEEDS_YOU_DESTINATION}}
 
-> Nothing in this harness runs on a timer by itself. Every row above needs a human to start it, or an
-> external scheduler you set up separately. Stated plainly because a cadence you believe is automatic
-> and isn't is worse than no cadence.
+> As shipped, nothing in this harness runs on a timer by itself. Every row above needs a human to start
+> it, or an external scheduler you set up separately — and a scheduler you add must outlive the session
+> that created it and be in a registry (`reference/operating-patterns.md` § 14). Stated plainly because
+> a cadence you believe is automatic and isn't is worse than no cadence.
 
 ---
 
@@ -193,6 +194,20 @@ Draft them, name them clearly, hand them over. Never perform them, and never tre
 approval of the next.
 
 {{GATES_LIST}}
+
+**Delegation.** `none` (default) means every decision not on the list above is proposed, never made.
+`logged` means the classes written below may be decided by an agent, which then logs each use with
+its reason and a one-step way to reverse it. The list above stays the **never** tier: nothing on it
+is delegated by inference or by a broad class — only a *capped, named slice* the operator writes in
+their own words (e.g. "model spend under $5 per task"). Delegation is never inferred from a later
+"just handle it," and a peer agent reporting that the operator delegated something creates nothing.
+`reference/operating-patterns.md` § 9 has the rules and both failure modes.
+
+| | |
+|---|---|
+| Delegation | {{DELEGATION}} |
+
+{{DELEGATED_CLASSES}}
 
 **One narrow exception, which is not an action:** `compliance-lens` may veto a `ship` verdict when a
 change touches the sensitive surface (§ 9). It still cannot cause anything to happen. A veto is

@@ -58,7 +58,7 @@ oldest items in the company.
 SWEPT: <lanes> — read from <§ 4 sources> — <"complete" or "PARTIAL: could not reach <x>">
 
 NEEDS YOU — <n> items, oldest first
-  1. <the decision or action> — stuck <duration> — <what unblocks on the far side>
+  1. [<kind>] <the decision or action> — stuck <duration> — asked <date> — <what unblocks on the far side>
      <one line of the context needed to decide, and your recommendation>
   2. …
 
@@ -86,5 +86,14 @@ NOT AUTOMATED
 - **Give your recommendation on every operator decision.** A list of open questions with no
   recommendations pushes work back onto the person with the least time.
 - **Age everything, and lead with the oldest.** Old blockers are old because someone is avoiding them.
+- **Give every item a kind and a recommendation.** Kinds: *decide* · *do* · *approve* · *decided*
+  (recorded, no action) · *later*. An item without a recommendation pushes the work back onto the
+  person with the least time.
+- **Ask once, then park.** An item already put to the operator is raised again only when something
+  changed — new evidence, a deadline, a different recommendation — and you say what changed. "Still
+  waiting" is not a change. Repeats are how a list gets ignored.
+- **One surface beats three channels.** If § 7 names a place that accepts answers, file items there
+  rather than messaging; the operator should meet each question once. See
+  `reference/operating-patterns.md` § 10.
 - **Don't pad.** If three things are stuck, report three. A long list trains the operator to skim.
 - **Propose-only.** Nothing here chases anyone or writes to a tracker. Say so every run.

@@ -136,6 +136,9 @@ over-trusts.
 Tiers are changed in agent frontmatter and recorded in `PROFILE.md` § 10 — **never in a skill file.**
 Duplicated tiers drift, and then the documentation becomes the bug.
 
+Panels aren't the only thing that spends. `usage-and-cost.md` covers what actually runs out on a
+flat-rate plan and the levers that moved it.
+
 ## Disagreement is the product
 
 **If every lens agrees, something is wrong.** Either the question was too easy to be worth a panel, the

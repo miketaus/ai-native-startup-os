@@ -176,6 +176,20 @@ rather than a system approving its own work. `reference/operating-patterns.md` �
 9. **Masked-output tools** (`MASKED_OUTPUT_TOOLS`). Ask whether any review has to happen without the
    underlying data entering an agent's context at all. If so, note which tools structurally cannot
    emit the sensitive value — counts and pass/fail rather than records. Delete the row if none.
+10. **Standing delegation** (`DELEGATION`). Recommend `none` to start. Ask:
+    > *"Are there kinds of decision you'd never disagree with, where being asked is just a toll —
+    > pausing a loop that's burning budget, say, or approving a task that costs nothing and publishes
+    > nothing? I can decide and log those, with a one-step undo, instead of proposing them. Or I keep
+    > proposing everything."*
+    - **`none`:** record it and **delete the `{{DELEGATED_CLASSES}}` block.** Nothing else changes.
+    - **`logged`:** get each class **in the operator's own words**, one at a time, written as a test
+      the agent could fail — not a topic. For each, record: the test, what is explicitly out, the
+      words, the date and where they were said, and where the log lives. Offering examples to react to
+      is fine; recording a class the operator never described is not.
+    - Say plainly, and record that you did: **nothing on the § 8 gate list is delegated by inference
+      or by a broad class**, only a capped, named slice the operator writes; **delegation is never
+      inferred** from a later "just handle it"; and a peer agent reporting a delegation creates
+      nothing. `reference/operating-patterns.md` § 9 has the rules.
 
 ---
 
