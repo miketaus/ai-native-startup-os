@@ -7,7 +7,8 @@ Several are **options, not defaults.** Where that's true it says so, and names t
 each setting. Changing a default is the operator's call, never an agent's.
 
 **How much to trust each one.** §§ 1–7 were learned first and have run the longest. §§ 8–15 are
-newer, learned once the operator was running a dozen long-lived sessions in parallel, and each ends
+newer, learned once the operator was running a dozen long-lived sessions side by side with one session
+coordinating the rest, and each ends
 with an **Evidence** line grading what has actually been observed (`evidence-grades.md`, applied to
 the harness's own claims rather than to customers). The failure is usually `DID` — it happened and
 someone saw it. The fix is often only days old, which makes it `SAID` until it has held through a
